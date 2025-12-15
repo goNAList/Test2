@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo" class="logo-image">
+            </div>
+            <span class="logo-text">Russ0</span>
+        </a>
+    </nav>
+
+    <div class="center-screen">
+        <!-- Сюда попадет никнейм -->
+        <h1 id="user-name" class="big-username">Loading...</h1>
+        
+        <!-- Сюда попадет почта -->
+        <div id="user-email" class="medium-email"></div>
+
+        <!-- Сюда попадет пароль -->
+        <div id="user-password" class="medium-password"></div>
+    </div>
+
+    <div class="info-block">
+        <p class="info-text">This site do nothing</p>
+    </div>
+
+    <script>
+        // Простейший скрипт: достал данные -> вставил в текст
+        document.addEventListener('DOMContentLoaded', () => {
+            const data = localStorage.getItem('currentUser');
+            
+            if (data) {
+                const user = JSON.parse(data);
+                // Ищем имя в поле username ИЛИ nickname
+                const name = user.username || user.nickname || "No Name";
+                
+                document.getElementById('user-name').textContent = name;
+                document.getElementById('user-email').textContent = user.email;
+                document.getElementById('user-password').textContent = user.password;
+            } else {
+                // Если данных нет (пользователь не вошел)
+                document.getElementById('user-name').textContent = "Guest";
+                document.getElementById('user-email').textContent = "No email";
+                document.getElementById('user-password').textContent = "No password";
+            }
+        });
+    </script>
+</body>
+</html>

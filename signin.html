@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo" class="logo-image">
+            </div>
+            <span class="logo-text">Russ0</span>
+        </a>
+
+        <div class="auth-buttons">
+            <a href="signup.html" class="btn">Sign up</a>
+            <a href="signin.html" class="btn">Sign in</a>
+        </div>
+    </nav>
+
+    <div class="decor-panel">
+        <img src="Frame-2.png" alt="Logo Large" class="decor-logo">
+    </div>
+
+    <div class="auth-box">
+
+        <h2 class="auth-title">Login</h2>
+
+        <form class="auth-form">
+            <!-- 1. Enter nickname -->
+            <div class="form-group">
+                <label class="form-label">Enter nickname:</label>
+                <input type="text" class="form-input input-person" placeholder="Nickname" id="signin-username">
+            </div>
+
+            <!-- 2. Enter email -->
+            <div class="form-group">
+                <label class="form-label">Enter email:</label>
+                <input type="email" class="form-input input-mail" placeholder="email@example.com" id="signin-email">
+            </div>
+
+            <!-- 3. Enter password -->
+            <div class="form-group">
+                <label class="form-label">Enter password:</label>
+                <input type="password" class="form-input input-lock" placeholder="Password" id="signin-password">
+            </div>
+
+            <button type="submit" class="submit-btn" id="signin-btn">Continue</button>
+        </form>
+    </div>
+
+    <script src="signin.js"></script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+body {
+    background-color: #111111; /* Установка цвета фона */
+    margin: 0; /* Убираем стандартные отступы браузера */
+
+    font-family: sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    min-width: 544px;
+    min-height: 544px;
+}
+
+.navbar {
+    width: 100%; /* Ширина равна ширине браузера */
+    height: 64px; /* Высота 64px */
+    background-color: #171717; /* Цвет панели */
+    box-shadow: 0px 4px 10px rgba(243, 243, 243, 0.15); /* Тень */
+
+    /* Выравнивание содержимого по вертикали */
+    display: flex;
+    align-items: center;
+
+    position: fixed; /* Фиксируем позицию */
+    top: 0; /* Прижимаем к самому верху */
+    left: 0; /* Прижимаем к левому краю */
+    z-index: 100;
+}
+
+.logo-container {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px; /* Скругление углов */
+    /* Градиент: направление to bottom right */
+    background: linear-gradient(to bottom right, #0000FF, #FFFFFF);
+    box-shadow: 0px 0px 10px rgba(243, 243, 243, 0.5); /* Тень */
+    /* Центрируем картинку внутри квадрата */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;          /* Чтобы элементы внутри (лого и текст) стояли в ряд */
+    align-items: center;    /* Выравнивание по вертикали */
+    text-decoration: none;  /* Убираем подчеркивание */
+    color: inherit;         /* Наследуем цвет текста */
+    cursor: pointer;
+    margin-left: 32px;
+}
+
+.logo-image {
+    width: 24px; 
+    height: 24px;
+    object-fit: contain; /* Чтобы картинка не искажалась */
+}
+
+.logo-text {
+    font-size: 24px;      /* Размер шрифта 32px */
+    margin-left: 16px;    /* Отступ от логотипа 16px */
+    color: #f3f3f3;       /* Белый цвет для контраста на темном фоне */
+    font-weight: bold;    /* Жирность (опционально, для заголовка) */
+}
+
+.auth-buttons {
+    margin-left: auto; /* Сдвигаем блок с кнопками вправо до упора */
+    margin-right: 32px; /* Отступ от правого края браузера */
+    display: flex;
+    gap: 16px; /* Расстояние между кнопками */
+}
+
+.btn {
+    width: 96px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none; /* Убираем подчеркивание ссылки */
+    
+    font-size: 16px;
+    border-radius: 24px;
+    
+    /* Состояние по умолчанию */
+    background: transparent; /* Цвет отсутствует */
+    border: 2px solid rgba(243, 243, 243, 0.5); /* Обводка #f3f3f3 с 50% непрозрачности */
+    color: rgba(243, 243, 243, 0.5); /* Цвет текста #f3f3f3 с 50% непрозрачности */
+    
+    /* Плавный переход для всех изменяемых свойств */
+    transition: all 0.2s ease;
+}
+
+    .btn:hover {
+        /* Цвет градиент как у логотипа */
+        background: linear-gradient(to bottom right, #0000FF, #FFFFFF);
+        border-color: transparent; /* Обводка отсутствует*/
+        border: 2px solid transparent;
+        font-weight: bold;
+        background-origin: border-box;
+        border-radius: 48px; /* Сделал в 2 раза больше чтобы скругление оставалось полукругом */
+
+        color: rgb(243, 243, 243, 1);
+        text-shadow: 0px 0px 10px #111111;
+        transform: scale(1.1); /* Увеличение на 10% */
+
+        box-shadow: 0px 0px 10px #0000FF;
+    }
+
+.main-image-container {
+    margin-top: 104px;       /* Отступ сверху от навигации 72+32px*/
+    margin-left: 2.5%;      /* Отступ слева всегда 2.5% */
+    margin-right: 2.5%;     /* Отступ справа всегда 2.5%px */
+
+    margin-bottom: 32px;
+}
+
+.main-image {
+    width: 100%;            /* Картинка растягивается на всю ширину контейнера */
+    height: auto;           /* Высота подстраивается пропорционально */
+    display: block;         /* Убираем лишние отступы снизу (особенность inline-элементов) */
+    object-fit: cover;      /* На всякий случай, если зададите высоту */
+}
+
+.info-block {
+    width: 100%; /* Ширина во весь браузер */
+    height: 72px; /* Высота 128px */
+    background-color: #111111; /* Цвет фона */
+    
+    /* Линия на верхней грани */
+    border-top: 2px solid rgba(243, 243, 243, 0.5);
+
+    margin-top: auto;
+
+    display: flex;
+    justify-content: center;
+
+    box-sizing: border-box;
+    padding-top: 32px;
+}
+
+.info-text {
+    font-size: 16px;
+    color: rgba(243, 243, 243, 0.25);
+    margin: 0; /* Убираем стандартные отступы параграфа, чтобы padding сработал точно */
+    text-align: center
+}
+
+.auth-box {
+    position: fixed; /* Фиксируем относительно окна браузера */
+    top: 108px; /* 72px (навбар) + 36px (отступ) */
+    bottom: 36px;
+    right: 36px; 
+
+    width: 400px;
+    min-height: 600px;
+    
+    background-color: #111111;
+    border-radius: 36px;
+
+    box-shadow: 0px 0px 10px rgba(243, 243, 243, 0.15); 
+    
+    padding: 32px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрируем контент по вертикали */
+    align-items: center;
+    z-index: 50;
+
+    overflow: auto;
+}
+
+.auth-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Отступы между полями */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Отступ между лейблом и инпутом */
+}
+
+.form-label {
+    color: #f3f3f3;
+    font-size: 20px;
+    font-family: sans-serif;
+    margin-left: 8px; /* Небольшой отступ слева, чтобы текст был над началом поля */
+    font-weight: bold;
+}
+
+.form-input {
+    height: 48px;
+    background-color: #171717; /* Чуть светлее фона, чтобы выделяться */
+    border: 2px solid rgba(243, 243, 243, 0.5);
+    border-radius: 12px;
+    padding: 0 16px 0 48px; /* Внутренние отступы для текста */
+
+    background-repeat: no-repeat;
+    background-position: 12px center; /* Иконка слева с отступом 12px */
+    background-size: 24px 24px;       /* Размер иконки */
+    
+    color: #f3f3f3;
+    font-size: 16px;
+    outline: none; /* Убираем стандартную синюю обводку браузера */
+    transition: border-color 0.2s;
+}
+
+.input-person {
+    background-image: url('person.png');
+}
+
+.input-mail {
+    background-image: url('mail.png');
+}
+
+.input-lock {
+    background-image: url('lock.png');
+}
+
+.form-input::placeholder {
+    color: rgba(243, 243, 243, 0.5);
+}
+
+.form-input:focus {
+    border-color: #0000FF; /* Зеленый цвет при фокусе (как у лого) */
+}
+
+.auth-title {
+    color: #f3f3f3;
+    font-family: sans-serif;
+    font-size: 36px;       /* Крупный размер */
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 32px;   /* Отступ до полей */
+    text-align: center;
+}
+
+.submit-btn {
+    height: 48px;
+    margin-top: 16px; /* Отступ от последнего поля */
+    border-radius: 24px;
+    border: none;
+    cursor: pointer;
+    /* Градиентный фон (как у логотипа) */
+    background: linear-gradient(to bottom right, #0000FF, #FFFFFF);
+    color: #111111; /* Темный текст для контраста на зеленом */
+    font-size: 20px;
+    font-weight: bold;
+    font-family: sans-serif;
+    /* Эффекты при наведении */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+    .submit-btn:hover {
+        transform: scale(1.02); /* Легкое увеличение */
+        box-shadow: 0px 0px 15px rgba(0,0,255, 0.4); /* Синие свечение */
+    }
+
+.submit-btn:active {
+    transform: scale(0.98); /* Эффект нажатия */
+}
+
+.decor-panel {
+    position: fixed;
+    top: 108px; /* 72px + 36px */
+    bottom: 36px; /* Отступ снизу */
+    left: 0; /* Начинаем от левого края (можно поменять на 36px, если нужно) */
+    right: 472px; /* Отступ справа 472px */
+
+    min-height: 600px;
+    display: flex; /* Включаем Flexbox */
+    justify-content: center; /* Центр по горизонтали */
+    align-items: center; /* Центр по вертикали */
+    overflow: hidden;
+    /* Градиентный фон */
+    background: linear-gradient(to bottom right, #0000FF, #FFFFFF);
+    box-shadow: 0px 0px 15px rgba(0,0,255, 0.8); /* Синие свечение */
+    /* Скругление только правых углов */
+    border-radius: 0 36px 36px 0; /* Верхний-левый, Верхний-правый, Нижний-правый, Нижний-левый */
+
+    z-index: 25; /* Ниже формы (900), но выше фона */
+}
+
+.decor-logo {
+    max-width: 80%;       /* Не больше 80% ширины панели */
+    max-height: 80%;      /* Не больше 80% высоты панели */
+    object-fit: contain;  /* Сохранять пропорции картинки, вписывая её целиком */
+}
+
+.password-rules-panel {
+    margin-top: 20px;
+    background-color: #171717;
+    border: 2px solid rgba(243, 243, 243, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    color: rgba(243, 243, 243, 0.7);
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.rules-title {
+    margin: 0 0 10px 0;
+    font-weight: bold;
+    color: #f3f3f3;
+}
+
+.rules-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rule-item {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.2s ease;
+}
+
+/* Класс для выполненного условия (зеленый) */
+.rule-item.valid {
+    color: #0000FF;
+    font-weight: bold;
+}
+
+/* Добавляем галочку перед выполненным условием */
+.rule-item.valid::before {
+    content: '✔';
+}
+
+/* Кружок перед невыполненным условием */
+.rule-item::before {
+    content: '•';
+}
+
+/* === Стиль для простой страницы профиля === */
+.center-screen {
+    /* Занимаем всю высоту окна браузера */
+    height: 100vh; 
+    width: 100%;
+    
+    /* Flexbox для центрирования */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центр по вертикали */
+    align-items: center;     /* Центр по горизонтали */
+    
+    background-color: #111111; /* Цвет фона (на всякий случай) */
+    text-align: center;
+}
+
+.big-username {
+    font-size: 80px; /* Очень крупный шрифт */
+    font-weight: bold;
+    color: #0000FF; /* Синий цвет */
+    margin: 0;
+    text-shadow: 0 0 20px rgba(0,0,255, 0.5); /* Свечение */
+}
+
+.medium-email {
+    font-size: 24px;
+    color: #f3f3f3;
+    margin-top: 20px;
+    opacity: 0.5;
+    font-family: monospace;
+}
+
+.medium-password {
+    font-size: 24px;
+    color: #f3f3f3;
+    margin-top: 20px;
+    opacity: 0.5;
+    font-family: monospace;
+}

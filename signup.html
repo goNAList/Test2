@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo" class="logo-image">
+            </div>
+            <span class="logo-text">Russ0</span>
+        </a>
+
+        <div class="auth-buttons">
+            <a href="signup.html" class="btn">Sign up</a>
+            <a href="signin.html" class="btn">Sign in</a>
+        </div>
+    </nav>
+
+    <div class="decor-panel">
+        <img src="Frame-2.png" alt="Logo Large" class="decor-logo">
+    </div>
+
+    <div class="auth-box">
+
+        <h2 class="auth-title">Registration</h2>
+
+        <form class="auth-form">
+            <!-- 1. Create nickname -->
+            <div class="form-group">
+                <label class="form-label">Create nickname:</label>
+                <input type="text" class="form-input input-person" placeholder="Nickname" id="signup-username">
+            </div>
+
+            <!-- 2. Enter email -->
+            <div class="form-group">
+                <label class="form-label">Enter email:</label>
+                <input type="email" class="form-input input-mail" placeholder="email@example.com" id="signup-email">
+            </div>
+
+            <!-- 3. Create password -->
+            <div class="form-group">
+                <label class="form-label">Create password:</label>
+                <input type="password" class="form-input input-lock" placeholder="Password" id="signup-password">
+            </div>
+
+            <!-- 4. Confirm password -->
+            <div class="form-group">
+                <label class="form-label">Confirm password:</label>
+                <input type="password" class="form-input input-lock" placeholder="Password" id="signup-password">
+            </div>
+        
+            <!-- Можно добавить кнопку отправки позже -->
+            <button type="submit" class="submit-btn" id="signup-btn">Continue</button>
+
+            <div id="password-rules-panel" class="password-rules-panel" style="display: none;">
+                <p class="rules-title">Conditions for the password:</p>
+                <ul class="rules-list">
+                    <li id="rule-length" class="rule-item">Min. 8 characters</li>
+                    <li id="rule-case" class="rule-item">Min. 1 uppercase & 1 lowercase letter</li>
+                    <li id="rule-digit" class="rule-item">Min. 1 digit</li>
+                </ul>
+            </div>
+        </form>
+    </div>
+
+    <script src="signup.js"></script>
+</body>
+</html>
